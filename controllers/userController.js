@@ -1,5 +1,15 @@
 import User from "../models/User.js"; 
 
+// SELECT USER -- NEEDS TO BE UPDATED
+export const selectUser = async (req, res) => {
+  try {
+    res.redirect("/");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error creating user");
+  }
+};
+
 // CREATE USER
 export const createUser = async (req, res) => {
   try {

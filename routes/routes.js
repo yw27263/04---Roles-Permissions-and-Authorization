@@ -17,8 +17,11 @@ router.get("/messages/cancelEdit", messageController.cancelEdit)
 // DELETE MESSAGE
 router.post("/messages/delete/:id", messageController.deleteMessage);
 
+// SELECT USER
+router.post("/users/select", userController.selectUser);
+
 // CREATE USER
-router.post("/users", userController.createUser);
+router.post("/users/add", userController.createUser);
 
 // DELETE USER
 router.post("/users/delete/:id", userController.deleteUser);

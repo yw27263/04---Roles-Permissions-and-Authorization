@@ -3,7 +3,8 @@ import User from "../models/User.js";
 // SELECT USER -- NEEDS TO BE UPDATED
 export const selectUser = async (req, res) => {
   try {
-    res.redirect("/");
+    const user = req.body.user;
+    res.redirect("/user", {user});
   } catch (err) {
     console.error(err);
     res.status(500).send("Error creating user");

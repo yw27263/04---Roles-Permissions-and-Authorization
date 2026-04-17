@@ -4,7 +4,7 @@ import User from "../models/User.js";
 // HOME PAGE
 export const homePage = async (req, res) => {
   try {
-    const messages = await Message.find();
+    const messages = await Message.find().populate('author');
     const users = await User.find();
     res.render("index", { messages, users });
   } catch (err) {
@@ -16,7 +16,9 @@ export const homePage = async (req, res) => {
 // CREATE MESSAGE
 export const createMessage = async (req, res) => {
   try {
-    await Message.create({ message: req.body.message });
+    const message = req.body.message.trim();
+    const author = req.body.currentUser;
+    await Message.create({message, author});
     res.redirect("/");
   } catch (err) {
     console.error(err);

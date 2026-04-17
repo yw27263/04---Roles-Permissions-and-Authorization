@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Roles, Permissions, and Authorizations</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <h1>Current User: <%= user.name %></h1>
+
+  <hr>
+
+  <h1>Messages</h1>
+
+  <form action="/messages" method="POST">
+    <input name="message" placeholder="New message">
+    <button>Add</button>
+  </form>
+
+  <ul>
+    <% messages.forEach(m => { %>
+      <li>
+        <%= if m.user.name = user.name {%>
+            <p><%= m.message %></p>
+            <p>By: <%= m.author.name %></p>
+            <form action="/messages/edit/<%= m._id %>" method="POST" style="display:inline;">
+                <button>Edit</button>
+            </form>
+            <form action="/messages/delete/<%= m._id %>" method="POST" style="display:inline;">
+                <button>Delete</button>
+            </form>
+        <%= } %>
+      </li>
+    <% }) %>
+  </ul>
+
+</body>
+</html>

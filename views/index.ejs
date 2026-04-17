@@ -7,7 +7,7 @@
 <body>
 
   <h1>Current User: </h1>
-  
+
   <h1>Select User</h1>
   <form action="/users/select" method="post">
     <select name="user">
@@ -17,10 +17,10 @@
     </select>
     <button type="submit">Select User</button>
   </form>
-  
+
 
   <hr>
-  
+
   <h1>Messages</h1>
 
   <form action="/messages" method="POST">
@@ -31,7 +31,8 @@
   <ul>
     <% messages.forEach(m => { %>
       <li>
-        <%= m.message %>
+        <p><%= m.message %></p>
+        <p>By: <%= m.author.name %></p>
         <form action="/messages/edit/<%= m._id %>" method="POST" style="display:inline;">
           <button>Edit</button>
         </form>

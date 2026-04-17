@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Refactor App</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Edit Message</h1>
+
+  <div>
+    <form action="/messages/update/<%= message._id %>" method="POST" style="display:inline;">
+      <input type="text" name="message" value="<%= message.message %>" required>
+      <button>Update</button>
+    </form>
+    <form action="/messages/cancelEdit" method="GET" style="display:inline;">
+      <button>Cancel</button>
+    </form>
+  </div>
+
+</body>
+</html>
